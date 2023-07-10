@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="content-container">
+    <div class="Head">
+      <h1>Map</h1>
+    </div>
+
+    <div class="info-container">
+      <div class="Map-section">
+        <h2>Map Name</h2>
+
+        <div #Blocks class="Img-Map">
+          <div
+            (click)="showDiv(i)"
+            *ngFor="let in of counter(9); let i = index"
+            class="Block"
+            [class.disabled]="items[i].disabled"
+          >
+            <div *ngIf="divVisibility[i]">
+              <app-mapmodal
+                [visibility]="divVisibility[i]"
+                Index="{{ i }}"
+                (disableBlock)="removeFunct(i)"
+                (buttonHide)="hideDiv(i)"
+              ></app-mapmodal>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="Items-Section">
+        <h2 class="Locations">Locations:</h2>
+        <div class="Items">
+          <app-location-item
+            [LocationName]="item.name"
+            [LocationIcon]="item.icon"
+            [Route]="item.link"
+            *ngFor="let item of locations"
+          ></app-location-item>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

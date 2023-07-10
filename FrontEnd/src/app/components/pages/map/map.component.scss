@@ -1,0 +1,225 @@
+@import "../../../../styles.scss";
+
+h2 {
+  margin: 0;
+}
+
+.Locations {
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
+
+.container {
+  height: 100vh;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  order: 0;
+  flex: 1 1 auto;
+  align-self: auto;
+}
+
+.content-container {
+  width: 85%;
+  height: 100vh !important;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-45%, -50%);
+  text-align: left;
+  color: white;
+  align-self: auto;
+  padding: 0 50px 0px 50px;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  // @include boxShadow;
+  overflow: auto;
+}
+
+.Head {
+  height: max-content;
+  width: 90%;
+  background-color: $Primary_lightBrown;
+  border-radius: 5px;
+  padding-left: 5%;
+  padding-right: 5%;
+  -webkit-filter: drop-shadow(0px 10px 4px #2222227c) !important;
+  filter: drop-shadow(0px 10px 4px #2222227c) !important;
+  z-index: -1;
+}
+
+.info-container {
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  flex-direction: row;
+  border-radius: 5px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Items {
+  width: 100%;
+  height: 70vh;
+  overflow: auto;
+}
+
+.Map {
+  width: 90%;
+  height: 90%;
+  background-color: $Primary_lightBrown;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @include boxShadow;
+}
+
+.Img-Map {
+  height: 75%;
+  aspect-ratio: 1 / 1;
+  background-image: url("../../../..//assets/Map\ Texture.png");
+  image-rendering: pixelated;
+  background-size: cover;
+  background-position: center;
+  border-radius: 5px;
+  box-shadow: 0px 5px 4px 0px rgba(0, 0, 0, 0.25) inset;
+  display: grid !important;
+  grid-template-columns: repeat(3, 3fr);
+  // grid-auto-rows: 200px;
+}
+
+.Block {
+  // background-color: rgba(255, 255, 255, 0.25);
+  border: 2px solid;
+  width: 99%;
+  height: 99%;
+  z-index: 0 !important;
+  background-size: 60%;
+
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 5px; // grid-row: 1 / 3 !important;
+}
+
+.Block:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+  background-image: url("../../../../assets/add_circle.svg") !important;
+  background-size: 40%;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 2px solid;
+  width: 99%;
+  height: 99%;
+  cursor: pointer;
+  border-radius: 5px; // grid-row: 1 / 3 !important;
+}
+
+.HeadTwo {
+  width: 100%;
+  height: 16;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+  background-color: $Primary_lightBrown;
+  text-align: center;
+  align-self: flex-start;
+  border-radius: 5px;
+}
+
+.Items-Section {
+  width: 50%;
+  background-color: $Primary_lightBrown;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 5px;
+  @include boxShadow;
+}
+
+.Map-section {
+  background-color: $Primary_orange;
+  border-radius: 5px;
+  width: 45%;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  @include boxShadow;
+}
+
+.disabled {
+  pointer-events: none;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.custom-file-upload {
+  display: inline-block;
+  padding: 8px 14px;
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: $Primary_brown;
+  @include boxShadow;
+}
+
+.custom-file-upload:hover {
+  background-color: $Primary_lightBrown;
+}
+
+.form {
+  width: 100%;
+  display: flex !important;
+  justify-content: space-around !important;
+  align-items: center !important;
+}
+
+.MapName {
+  padding: 8px 14px;
+}
+
+@media screen and (max-width: 1500px) {
+  .content-container {
+    width: 75%;
+    height: 100vh;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-45%, -50%);
+    text-align: left;
+    color: white;
+    align-self: auto;
+    padding: 0 50px 0px 50px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    // @include boxShadow;
+  }
+
+  .Isometric {
+    width: 60%;
+    background-size: 20% !important;
+    position: relative;
+    top: -10%;
+    @include boxShadow;
+  }
+
+  .Img-Map {
+    height: 55%;
+    aspect-ratio: 1 / 1;
+    background-image: url("../../../..//assets/Map\ Texture.png");
+    image-rendering: pixelated;
+    background-size: cover;
+    background-position: center;
+    border-radius: 5px;
+    box-shadow: 0px 5px 4px 0px rgba(0, 0, 0, 0.25) inset;
+  }
+}

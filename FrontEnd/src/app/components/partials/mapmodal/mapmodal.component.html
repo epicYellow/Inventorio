@@ -1,0 +1,25 @@
+<div *ngIf="visibility" id="{{ 'Div' + Index }}" class="Container">
+  <div (click)="handleClick($event)" class="close">X</div>
+  <form (ngSubmit)="addLocation()" [formGroup]="newLocationForm">
+    <h2>{{ Index }}</h2>
+    <h2>Location Name</h2>
+    <input
+      formControlName="LocationName"
+      required
+      placeholder="LocationName"
+      type="text"
+    />
+    <h2>Location Icon</h2>
+    <div class="Icons">
+      <div
+        id="{{ i }}"
+        (click)="selection($event)"
+        class="ItemIcon"
+        *ngFor="let item of IconsSelect; let i = index"
+        style="background-image: url('../../../../assets/{{ item }}');"
+      ></div>
+    </div>
+
+    <button *ngIf="isHidden">Add</button>
+  </form>
+</div>

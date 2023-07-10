@@ -1,0 +1,85 @@
+<div class="Container">
+  <div class="Gears">
+    <div
+      class="Gear"
+      [ngStyle]="{ transform: 'rotate(' + rotation + 'deg)' }"
+    ></div>
+    <div
+      class="Gear"
+      [ngStyle]="{ transform: 'rotate(' + rotation + 'deg)' }"
+    ></div>
+
+    <div
+      class="Gear"
+      [ngStyle]="{ transform: 'rotate(' + rotation + 'deg)' }"
+    ></div>
+    <div
+      class="Gear"
+      [ngStyle]="{ transform: 'rotate(' + rotation + 'deg)' }"
+    ></div>
+    <div
+      class="Gear"
+      [ngStyle]="{ transform: 'rotate(' + rotation + 'deg)' }"
+    ></div>
+    <div
+      class="Gear"
+      [ngStyle]="{ transform: 'rotate(' + rotation + 'deg)' }"
+    ></div>
+  </div>
+  <form [formGroup]="loginForm" (ngSubmit)="submit()">
+    <h3>Type in your unique code</h3>
+    <input
+      required
+      formControlName="userName"
+      style="width: 100px"
+      placeholder="user name"
+    />
+    <input
+      required
+      (input)="onInputChanged($event)"
+      type="number"
+      formControlName="one"
+    />
+    <input
+      required
+      (input)="onInputChanged($event)"
+      type="number"
+      formControlName="two"
+    />
+    <input
+      required
+      (input)="onInputChanged($event)"
+      type="number"
+      formControlName="three"
+    />
+
+    <button type="submit">Login</button>
+  </form>
+  <div class="Gears">
+    <div
+      class="Gear"
+      [ngStyle]="{ transform: 'rotate(' + rotation + 'deg)' }"
+    ></div>
+    <div
+      class="Gear"
+      [ngStyle]="{ transform: 'rotate(' + rotation + 'deg)' }"
+    ></div>
+
+    <div
+      class="Gear"
+      [ngStyle]="{ transform: 'rotate(' + rotation + 'deg)' }"
+    ></div>
+    <div
+      class="Gear"
+      [ngStyle]="{ transform: 'rotate(' + rotation + 'deg)' }"
+    ></div>
+    <div
+      class="Gear"
+      [ngStyle]="{ transform: 'rotate(' + rotation + 'deg)' }"
+    ></div>
+    <div
+      class="Gear"
+      [ngStyle]="{ transform: 'rotate(' + rotation + 'deg)' }"
+    ></div>
+  </div>
+</div>

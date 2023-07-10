@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="content-container">
+    <div class="Head">
+      <h1>Welcome to the Crafting Page</h1>
+    </div>
+
+    <div class="Items">
+      <div *ngFor="let obj of Recipes">
+        <div *ngFor="let item of obj.levelOne_Recipes">
+          <app-crafting-item
+            [Name]="item.Recipe_Name"
+            [Level]="item.Recipe_Level"
+            [Req]="item.Material_Req"
+            Grayed=""
+          ></app-crafting-item>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

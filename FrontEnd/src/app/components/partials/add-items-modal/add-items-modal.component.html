@@ -1,0 +1,24 @@
+<div *ngIf="visibility" class="container">
+  <div (click)="handleClick()" class="close">X</div>
+  <h2>Add Items</h2>
+  <form (ngSubmit)="formSubmit()" [formGroup]="form">
+    <h3>Select Location</h3>
+    <select formControlName="locationName">
+      <option [value]="item.name" *ngFor="let item of locations">
+        {{ item.name }}
+      </option>
+    </select>
+    <br />
+    <div class="dropdowns" formArrayName="dropdowns">
+      <div *ngFor="let control of dropdowns.controls; let i = index">
+        <select [formControlName]="i" (change)="onDropdownChange(i)">
+          <option value="">Select an option</option>
+          <option *ngFor="let option of allItems" [value]="option.ItemName">
+            {{ option.ItemName }}
+          </option>
+        </select>
+      </div>
+    </div>
+    <button type="submit">Add Items</button>
+  </form>
+</div>

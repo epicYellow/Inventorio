@@ -1,0 +1,67 @@
+@import "../../../../styles.scss";
+
+.Container {
+  width: 70%;
+  height: 100vh;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-45%, -50%);
+  text-align: left;
+  color: white;
+  align-self: auto;
+  padding: 0 50px 0px 50px;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+  // @include boxShadow;
+  overflow: auto;
+  background-color: $Primary_brown;
+}
+
+form input .name {
+  width: 100px !important;
+}
+
+form input {
+  width: 35px;
+  height: 35px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.Gears {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 80%;
+  height: 20vh;
+  // background-color: red;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1) inset,
+    2.2px 2.2px 6px rgba(0, 0, 0, 0.1) inset,
+    3px 3px 15px rgba(0, 0, 0, 0.15) inset;
+  border-radius: 5px;
+}
+
+.Gear {
+  width: 18vh;
+  height: 18vh;
+  background-position: center center;
+  background-size: cover;
+  background-image: url("../../../../assets/FactGear.png");
+}
+
+form button {
+  width: 250px;
+  height: 35px;
+  cursor: pointer;
+}
+
+form {
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}

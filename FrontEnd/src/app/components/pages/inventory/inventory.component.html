@@ -1,0 +1,39 @@
+<app-add-items-modal
+  (buttonHide)="hideDiv()"
+  [visibility]="divVisibility"
+></app-add-items-modal>
+<div class="container">
+  <div class="content-container">
+    <div class="Head">
+      <h1>Welcome to your Inventory</h1>
+    </div>
+    <app-filter-search
+      [FilterItems]="locations"
+      [NumberItems]="itemsCount"
+    ></app-filter-search>
+
+    <div class="Items">
+      <!-- <div *ngFor="let item of locations">
+        <app-inventory-item
+          *ngFor="let arr of item.items; let i = index"
+        ></app-inventory-item>
+      </div> -->
+      <div *ngFor="let obj of locations">
+        <div *ngFor="let item of obj.items">
+          <app-inventory-item
+            *ngIf="
+              !searchTerm ||
+              item['ItemName'].toLowerCase().includes(searchTerm.toLowerCase())
+            "
+            [Level]="item['lvlRecipe']"
+            [Name]="item['ItemName']"
+            [Qta]="item['Qta']"
+            [Location]="item['Location']"
+            [Icon]="item['Icon']"
+          ></app-inventory-item>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div (click)="showDiv()" class="Add-Item"></div>

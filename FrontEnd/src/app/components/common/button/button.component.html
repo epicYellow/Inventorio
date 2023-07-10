@@ -1,0 +1,15 @@
+<button
+  [routerLink]="router"
+  (mouseleave)="AnimateNavBtn()"
+  (mouseenter)="AnimateNavBtn()"
+  (click)="onClick($event)"
+  type="{{ ButtType }}"
+  class="btn {{ style }}"
+>
+  {{ text == "" ? "" : text
+  }}<img
+    class="{{ icon == 'none' ? 'none' : 'icon-img' }}"
+    src="{{ '../../../../assets/' + icon }}"
+  />
+  <p class="title weg">{{ title }}</p>
+</button>

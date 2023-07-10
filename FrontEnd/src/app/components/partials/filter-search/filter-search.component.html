@@ -1,0 +1,12 @@
+<div class="container">
+  <b>{{ NumberItems }} Items</b>
+  <div class="Search">
+    <input
+      #s
+      (keyup.enter)="search(s.value)"
+      [value]="searchTerm"
+      placeholder="Search"
+    />
+    <button (click)="search(s.value)" class="SearchButton"></button>
+  </div>
+</div>

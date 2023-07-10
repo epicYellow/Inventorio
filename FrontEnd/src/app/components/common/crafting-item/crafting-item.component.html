@@ -1,0 +1,18 @@
+<div class="{{ Grayed !== '' ? 'container Brown' : 'container ' }}">
+  <div
+    class="Icon {{ Grayed }}"
+    style="background-size: 60%"
+    src="../../../../assets/IconFour.png"
+  ></div>
+  <b class="Item-Name {{ Grayed }}">{{ Name }}</b>
+  <b class="Item-Level">Lvl {{ Level }} Recipe</b>
+  <b class="{{ Grayed }}">Req:</b>
+  <div class="Item-Requirements {{ Grayed }}">
+    <app-crafting-req
+      *ngFor="let item of Req"
+      [Qta]="item.Total_Req"
+      [Icon]="item.Icon"
+    ></app-crafting-req>
+  </div>
+  <b class="Craft-Icon {{ Grayed }}"></b>
+</div>

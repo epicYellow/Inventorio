@@ -1,0 +1,42 @@
+<div class="side-nav">
+  <img class="nav-logo" src="../../../../assets/Logo2.png" alt="logo" />
+
+  <div class="nav-btns">
+    <app-button
+      [style]="'nav-btn'"
+      [icon]="'IconThree.png'"
+      [text]="''"
+      [title]="'Home'"
+      router="/"
+    ></app-button>
+    <app-button
+      [icon]="'IconTwo.png'"
+      [style]="'nav-btn'"
+      [text]="''"
+      [title]="'Map'"
+      router="/Map"
+    ></app-button>
+    <app-button
+      [icon]="'IconFour.png'"
+      [style]="'nav-btn'"
+      [text]="''"
+      [title]="'Inventory'"
+      router="/Inventory"
+    ></app-button>
+    <app-button
+      [icon]="'IconOne.png'"
+      [style]="'nav-btn'"
+      [text]="''"
+      [title]="'Crafting'"
+      router="/Crafting"
+    ></app-button>
+  </div>
+
+  <p (click)="logOutIN()">{{ LogInText }}</p>
+
+  <app-button
+    [icon]="'help.svg'"
+    [style]="'func-btn spacing'"
+    [text]="''"
+  ></app-button>
+</div>

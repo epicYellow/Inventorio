@@ -1,0 +1,109 @@
+@import "../../../../styles.scss";
+
+.btn {
+  border: none;
+}
+
+.title {
+  float: right;
+  position: relative;
+  width: 20px;
+  transition: all 0.2s;
+  top: 13%;
+  left: -20%;
+  color: white;
+  font-weight: bold;
+}
+
+.weg {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.nav-btn {
+  width: 12vh;
+  height: 65px;
+  position: relative;
+  background-color: $Primary_lightBrown;
+  z-index: 999 !important;
+  box-shadow: 0px 5px 4px 0px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  border-radius: 0px 5px 5px 0px;
+  transition: all 0.2s;
+}
+
+.moveLeft {
+  width: 28vh;
+}
+
+.btn img {
+  width: 45px;
+  height: 45px;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.none {
+  display: none;
+}
+
+.func-btn {
+  width: 58px;
+  height: 58px;
+  background-color: $Primary_lightBrown;
+  box-shadow: 0px 5px 4px 0px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+}
+
+.func-btn img {
+  width: 52px !important;
+  height: 52px !important;
+  top: 0px;
+  left: 0px;
+}
+
+.spacing {
+  margin-bottom: 20px;
+}
+
+.icon-img {
+  -webkit-filter: drop-shadow(0px 5px 2px #2222227c);
+  filter: drop-shadow(0px 5px 2px #2222227c);
+  transition: all 0.3s;
+  position: relative;
+  top: -15px;
+  left: 0px;
+  width: 70px !important;
+  height: 70px !important;
+}
+
+.moveUp {
+  position: relative;
+  top: -25px;
+  width: 70px !important;
+  height: 70px !important;
+  -webkit-filter: drop-shadow(0px 13px 2px #2222227c);
+  filter: drop-shadow(0px 13px 2px #2222227c);
+}
+
+@media screen and (max-width: 1500px) {
+  // .moveLeft {
+  //   width: 36vh;
+  // }
+
+  .title {
+    float: right;
+    position: relative;
+    width: 10px;
+    transition: all 0.2s;
+    top: 13%;
+    left: -24%;
+    color: white;
+    font-weight: bold;
+    text-align: left;
+  }
+}

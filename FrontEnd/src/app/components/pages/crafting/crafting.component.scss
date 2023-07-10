@@ -1,0 +1,199 @@
+@import "../../../../styles.scss";
+
+.container {
+  height: 100vh;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  order: 0;
+  flex: 1 1 auto;
+  align-self: auto;
+}
+
+.content-container {
+  width: 85%;
+  height: 100vh;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-45%, -50%);
+  text-align: left;
+  color: white;
+  align-self: auto;
+  padding: 0 50px 0px 50px;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  // @include boxShadow;
+  overflow: auto;
+}
+
+.Head {
+  height: max-content;
+  width: 90%;
+  background-color: $Primary_lightBrown;
+  border-radius: 5px;
+  padding-left: 5%;
+  padding-right: 5%;
+  @include boxShadow;
+
+  z-index: -1;
+}
+
+.info-container {
+  height: 60vh;
+  background-color: red;
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  max-width: 100vw;
+  overflow-y: auto;
+}
+
+.Map-section {
+  width: 60%;
+  height: 80vh;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.Map {
+  width: 90%;
+  height: 90%;
+  background-color: $Primary_lightBrown;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @include boxShadow;
+}
+
+.Img-Map {
+  width: 90%;
+  height: 90%;
+  background-image: url("../../../../assets/Map.jpg");
+  background-size: cover;
+  background-position: center;
+  border-radius: 5px;
+  box-shadow: 0px 5px 4px 0px rgba(0, 0, 0, 0.25) inset;
+}
+
+.HeadTwo {
+  width: 100%;
+  background-color: $Primary_lightBrown;
+  text-align: center;
+  align-self: flex-start;
+  border-radius: 5px;
+}
+
+.Items-Section {
+  width: 40%;
+  height: 80vh;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-direction: column;
+}
+
+.Items {
+  height: 70vh;
+  width: 100%;
+  // background-color: $Primary_lightBrown;
+  border-radius: 5px;
+  overflow: auto;
+}
+
+.search-container {
+  width: 100%;
+  height: 10vh;
+  display: flex !important;
+}
+
+.Add-Item {
+  position: absolute;
+  top: 95%;
+  left: 98%;
+  margin-top: -50px;
+  margin-left: -50px;
+  width: 65px;
+  background-color: $Primary_lightBrown;
+  height: 65px;
+  background-image: url("../../../../assets/add_circle.svg");
+  background-position: center;
+  background-size: 120%;
+  background-repeat: no-repeat;
+  border-radius: 200px;
+  @include boxShadow;
+  cursor: pointer;
+}
+
+.Location-Filter {
+  width: 100%;
+  height: 6vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 !important;
+}
+
+.FilterBy {
+  width: 15%;
+  text-align: center;
+  padding: 1vh;
+  background-color: $Primary_lightBrown;
+  border-radius: 5px;
+}
+
+.overflow {
+  width: 85%;
+  height: 4vh;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+}
+
+.Location {
+  width: max-content;
+  justify-content: center;
+  align-items: center;
+  padding: 1vh !important;
+  border-radius: 5px;
+  margin-left: 15px;
+  background-color: $Primary_orange;
+  @include boxShadow;
+  cursor: pointer;
+  display: inline-block;
+}
+
+@media screen and (max-width: 1500px) {
+  .content-container {
+    width: 75%;
+    height: 100vh;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-45%, -50%);
+    text-align: left;
+    color: white;
+    align-self: auto;
+    padding: 0 50px 0px 50px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    // @include boxShadow;
+  }
+
+  .Isometric {
+    width: 60%;
+    background-size: 20% !important;
+    position: relative;
+    top: -10%;
+    -webkit-filter: drop-shadow(0px 10px 4px #2222227c) !important;
+    filter: drop-shadow(0px 10px 4px #2222227c) !important;
+  }
+}

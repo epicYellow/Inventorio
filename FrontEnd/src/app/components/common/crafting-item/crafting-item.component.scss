@@ -1,0 +1,89 @@
+@import "../../../../styles.scss";
+
+.container {
+  width: 98%;
+  height: 65px;
+  background-color: $Primary_orange;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 0.6%;
+  padding-right: 1%;
+  margin-bottom: 10px;
+  @include boxShadow;
+}
+
+.Icon {
+  width: 50px;
+  height: 50px;
+  background-image: url("../../../../assets/IconFour.png");
+  background-size: 80% !important;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: $Primary_brown;
+  border-radius: 5px;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1) inset,
+    2.2px 2.2px 6px rgba(0, 0, 0, 0.1) inset,
+    3px 3px 15px rgba(0, 0, 0, 0.15) inset;
+}
+
+.Icon_Location {
+  width: 45px;
+  height: 30px;
+  background-color: $Primary_lightBrown;
+  border-radius: 5px;
+  @include boxShadow;
+}
+
+.Icon_Location {
+  background-image: url("../../../../assets/timeline.svg");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+input {
+  height: 30px;
+  width: 45px;
+  background-color: $Primary_lightBrown;
+  text-align: center;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1) inset,
+    2.2px 2.2px 6px rgba(0, 0, 0, 0.1) inset,
+    3px 3px 15px rgba(0, 0, 0, 0.15) inset;
+  text-align: center;
+  color: white;
+}
+
+.Item-Name {
+  width: 20%;
+}
+
+.Item-Level {
+  width: 18%;
+  text-align: center;
+}
+
+.Item-Requirements {
+  height: 50px;
+  width: 34%;
+  display: flex;
+}
+
+.Craft-Icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  background-image: url("../../../../assets/build_circle.svg");
+  background-size: contain;
+  background-position: center;
+  cursor: pointer;
+}
+
+.Grayed {
+  filter: blur(2px);
+}
+
+.Brown {
+  background-color: $primary_dark;
+}

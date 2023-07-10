@@ -1,0 +1,61 @@
+@import "../../../../styles.scss";
+
+html,
+body {
+  height: 100% !important;
+}
+.container {
+  display: block;
+  margin-top: 2%;
+  width: 100%;
+  height: 7vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: $Primary_lightBrown;
+  border-radius: 5px;
+  @include boxShadow;
+}
+
+.Spacer {
+  width: 50% !important;
+}
+
+.Search {
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.SearchButton {
+  width: 35px;
+  height: 35px;
+  background-image: url("../../../../assets/search.svg");
+  background-position: center;
+  background-size: 70%;
+  background-repeat: no-repeat;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  @include boxShadow;
+  background-color: $Primary_brown;
+  cursor: pointer;
+}
+
+input {
+  width: 80%;
+  border: none;
+  border-radius: 5px 0 0 5px;
+  height: 33px;
+  padding-left: 15px;
+  @include boxShadow;
+}
+
+select {
+  width: 20%;
+  border: none;
+  border-radius: 5px;
+  height: 33px;
+  padding-left: 15px;
+  @include boxShadow;
+}

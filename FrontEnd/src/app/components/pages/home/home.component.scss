@@ -1,0 +1,109 @@
+@import "../../../../styles.scss";
+
+.container {
+  height: 100vh;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  order: 0;
+  flex: 1 1 auto;
+  align-self: auto;
+}
+
+.content-container {
+  width: 85%;
+  height: 100vh;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-45%, -50%);
+  text-align: left;
+  color: white;
+  align-self: auto;
+  padding: 0 50px 0px 50px;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  // @include boxShadow;
+  overflow: auto;
+}
+
+.Head {
+  height: max-content;
+  width: 90%;
+  background-color: $Primary_lightBrown;
+  border-radius: 5px;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-bottom: 2%;
+  @include boxShadow;
+
+  z-index: -1;
+}
+
+.info-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Para {
+  width: 80%;
+}
+
+.Block-One {
+  width: 30%;
+  height: 60vh;
+  background-color: $Primary_lightBrown;
+  border-radius: 5px;
+  margin-top: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  @include boxShadow;
+}
+
+.Isometric {
+  width: 60%;
+  background-size: 20% !important;
+  position: relative;
+  top: -15%;
+  -webkit-filter: drop-shadow(0px 10px 4px #2222227c) !important;
+  filter: drop-shadow(0px 10px 4px #2222227c) !important;
+}
+
+@media screen and (max-width: 1500px) {
+  .content-container {
+    width: 75%;
+    height: 100vh;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-45%, -50%);
+    text-align: left;
+    color: white;
+    align-self: auto;
+    padding: 0 50px 0px 50px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    // @include boxShadow;
+  }
+
+  .Isometric {
+    width: 60%;
+    background-size: 20% !important;
+    position: relative;
+    top: -10%;
+    -webkit-filter: drop-shadow(0px 10px 4px #2222227c) !important;
+    filter: drop-shadow(0px 10px 4px #2222227c) !important;
+  }
+}
