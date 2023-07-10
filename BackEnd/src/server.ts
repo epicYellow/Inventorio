@@ -1,8 +1,6 @@
 import cors from "cors";
 import dotenv from "dotenv";
 import express from "express";
-import { sample_locations } from "./data";
-import { UserSchema } from "./models/User.model";
 import allitemsRouter from "./routers/allItems.router";
 import recipeRouter from "./routers/recipes.router";
 

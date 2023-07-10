@@ -22,7 +22,6 @@ export class AddItemsModalComponent {
   allItems!: AllItens[];
   locations!: Location[];
   @Input() 'visibility': any;
-
   @Output() buttonHide = new EventEmitter<void>();
   @Output() buttonShow = new EventEmitter<void>();
 

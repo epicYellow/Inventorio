@@ -38,17 +38,10 @@ export class InventoryComponent {
     this.userId = localStorage.getItem('UserId');
 
     activatedRoute.params.subscribe((params) => {
-      // if (params['searchTerm']) {
-      //   locationsObservable = this.locationService.getAllItemsBySearch(
-      //     params['searchTerm']
-      //   );
-      //   locationsObservable.subscribe((items) => {
-      //     this.locations = items;
-      //   });
-      // }
       locationsObservable = locationService.getAll();
       this.searchTerm = params['searchTerm'];
     });
+
     locationsObservable.subscribe((serverLocations) => {
       this.locations = serverLocations.filter(
         (item) => item.userId === this.userId
