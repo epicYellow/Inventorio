@@ -75,6 +75,7 @@ select {
   height: 35px;
   border: none;
   border-radius: 5px;
+  padding: 5px;
 }
 
 .dropdowns {
@@ -102,4 +103,10 @@ select {
   font-weight: 600;
   font-size: 18px;
   cursor: pointer;
+}
+
+.ble {
+  height: 40px;
+  // background-color: red;
+  margin: 20px;
 }

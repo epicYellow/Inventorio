@@ -10,18 +10,24 @@ import { UserService } from 'src/app/services/user.service';
 export class LoginComponent {
   loginForm!: FormGroup;
   isSubmitted = false;
+  errorText = '';
   rotation = 0;
+
   constructor(
     private formBuilder: FormBuilder,
     private userService: UserService
   ) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.loginForm = this.formBuilder.group({
       userName: ['', [Validators.required, Validators.email]],
       one: ['', Validators.required],
       two: ['', Validators.required],
       three: ['', Validators.required],
+    });
+
+    this.userService.loginValidation.subscribe((loginError: string) => {
+      this.errorText = loginError;
     });
   }
 
@@ -29,7 +35,7 @@ export class LoginComponent {
     return this.loginForm.controls;
   }
 
-  submit() {
+  async submit() {
     let payload = {
       userName: this.loginForm.controls['userName'].value,
       loginCode: parseInt(
@@ -39,7 +45,21 @@ export class LoginComponent {
       ),
     };
 
-    this.userService.Login(payload, '');
+    if (
+      this.loginForm.controls['one'].value === '' ||
+      this.loginForm.controls['two'].value === '' ||
+      this.loginForm.controls['three'].value === ''
+    ) {
+      this.errorText = 'Please fill in all the empty spaces';
+    } else {
+      try {
+        this.userService.Login(payload, '');
+      } finally {
+        this.userService.loginStatusChanged.subscribe((loginError: string) => {
+          console.log(loginError);
+        });
+      }
+    }
   }
 
   onInputChanged(event: Event) {

@@ -26,6 +26,7 @@
       [ngStyle]="{ transform: 'rotate(' + rotation + 'deg)' }"
     ></div>
   </div>
+  <div class="error">{{ errorText }}</div>
   <form [formGroup]="loginForm" (ngSubmit)="submit()">
     <h3>Type in your unique code</h3>
     <input

@@ -3,12 +3,13 @@
 .side-nav {
   width: 12vh;
   height: 100vh;
-  background-color: $Primary_darBrown;
+  background-color: $Primary_brown;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   position: fixed !important;
+  // @include boxShadow;
 }
 
 .side-nav img {

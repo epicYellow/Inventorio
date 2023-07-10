@@ -1,7 +1,14 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { NavBarService } from 'src/app/services/nav-bar.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-nav',
@@ -16,51 +23,24 @@ export class NavComponent {
   LogInText = 'LogIn';
 
   constructor(
-    private route: ActivatedRoute,
     private router: Router,
-    public nav: NavBarService
-  ) {
-    this.userId = localStorage.getItem('UserId');
+    public nav: NavBarService,
+    private userService: UserService,
+    private cdr: ChangeDetectorRef
+  ) {}
 
-    if (
-      this.userId === undefined ||
-      this.userId === '' ||
-      this.userId === null
-    ) {
-    } else {
-      this.LogInText = 'LogOut';
-      console.log('logged in');
-    }
-  }
-
-  showNav(): boolean {
-    return !this.hideNavbarLinks.includes(this.router.url);
+  ngOnInit() {
+    this.userService.loginStatusChanged.subscribe((isLoggedIn: Boolean) => {
+      this.LogInText = isLoggedIn ? 'LogOut' : 'LogIn';
+      this.cdr.detectChanges();
+    });
   }
 
   logOutIN() {
-    console.log(localStorage.getItem('UserId'));
-
-    if (
-      this.userId === undefined ||
-      this.userId === '' ||
-      this.userId === null
-    ) {
+    if (this.LogInText === 'LogIn') {
       this.router.navigateByUrl('/login');
-    } else {
-      localStorage.clear();
+    } else if (this.LogInText === 'LogOut') {
+      this.userService.Logout();
     }
-  }
-
-  ngOnInit() {
-    this.subscription = this.route.params.subscribe((params) => {
-      console.log(params);
-
-      const page = params['page'];
-      if (page === 'login') {
-        this.showNavBar = false;
-      } else {
-        this.showNavBar = true;
-      }
-    });
   }
 }
