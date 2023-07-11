@@ -8,7 +8,7 @@
       <div class="Map-section">
         <h2>Map</h2>
 
-        <div *ngIf="loggedIn" #Blocks class="Img-Map">
+        <div #Blocks class="Img-Map">
           <div
             (click)="showDiv(i)"
             *ngFor="let in of counter(9); let i = index"
@@ -25,11 +25,10 @@
             </div>
           </div>
         </div>
-        <p *ngIf="!loggedIn" class="ValidationText">Please login</p>
       </div>
       <div class="Items-Section">
         <h2 class="Locations">Locations:</h2>
-        <div *ngIf="loggedIn" class="Items">
+        <div class="Items">
           <app-location-item
             [LocationName]="item.name"
             [LocationIcon]="item.icon"
@@ -37,7 +36,6 @@
             *ngFor="let item of locations"
           ></app-location-item>
         </div>
-        <p *ngIf="!loggedIn" class="ValidationText">Please login</p>
       </div>
     </div>
   </div>

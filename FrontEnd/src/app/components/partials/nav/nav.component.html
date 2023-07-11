@@ -1,4 +1,4 @@
-<div class="side-nav">
+<div *ngIf="showNavBar" class="side-nav">
   <img class="nav-logo" src="../../../../assets/Logo2.png" alt="logo" />
 
   <div class="nav-btns">
@@ -32,7 +32,7 @@
     ></app-button>
   </div>
 
-  <p (click)="logOutIN()">{{ LogInText }}</p>
+  <p (click)="logOutIN()">Logout</p>
 
   <app-button
     [icon]="'help.svg'"

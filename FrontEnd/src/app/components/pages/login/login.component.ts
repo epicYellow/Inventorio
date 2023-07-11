@@ -12,6 +12,7 @@ export class LoginComponent {
   isSubmitted = false;
   errorText = '';
   rotation = 0;
+  hideNav: boolean = true;
 
   constructor(
     private formBuilder: FormBuilder,
