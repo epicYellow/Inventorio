@@ -15,12 +15,6 @@ export class LocationService {
     return this.http.get<Location[]>(LOCATIONS_URL);
   }
 
-  // getAllItemsBySearch(searchTerm: string) {
-  //   return this.http.get<Location[]>(
-  //     'http://localhost:5001/api/locations/search/' + searchTerm
-  //   );
-  // }
-
   postNewLocation(item: any) {
     console.log(item);
 

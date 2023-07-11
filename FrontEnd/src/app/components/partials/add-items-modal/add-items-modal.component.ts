@@ -83,11 +83,9 @@ export class AddItemsModalComponent {
   }
 
   formSubmit() {
-    console.log(this.form.controls['locationName'].value);
-
     let array = [];
-    console.log(this.form.controls['dropdowns'].value);
     for (let i = 0; i < this.allItems.length; i++) {
+      let isAlreadyAdded = false;
       for (let j = 0; j < this.form.controls['dropdowns'].value.length; j++) {
         if (
           this.allItems[i].ItemName === this.form.controls['dropdowns'].value[j]
@@ -101,9 +99,12 @@ export class AddItemsModalComponent {
             userId: 1,
           };
           array.push(payload);
-
+          isAlreadyAdded = true;
           break;
         }
+      }
+      if (isAlreadyAdded) {
+        break;
       }
     }
 

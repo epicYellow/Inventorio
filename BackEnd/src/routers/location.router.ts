@@ -61,12 +61,6 @@ router.get("/search/:searchTerm", async (req, res) => {
 
   const Locations = await LocationModel.find();
 
-  // const filteredItems = Locations.flatMap((obj) => obj.items).filter(
-  //   (item) =>
-  //     typeof item.ItemName === "string" &&
-  //     item.ItemName.toLowerCase().includes(searchTerm.toLowerCase())
-  // );
-
   const filteredObjects = Locations.map((obj) => ({
     ...obj,
     items: obj.items.filter(
@@ -82,8 +76,6 @@ router.get("/search/:searchTerm", async (req, res) => {
 });
 
 router.patch("/AddItems/:name", jsonParser, async (req, res) => {
-  // console.log(req.body);
-
   try {
     let mapName = req.params.name;
 
@@ -93,15 +85,19 @@ router.patch("/AddItems/:name", jsonParser, async (req, res) => {
 
     if (findMap) {
       const existingElements = findMap[0].items || [];
+
       const hasNewElements = req.body.every((newElement: any) => {
         return existingElements.some((existingElement: any) => {
+          console.log("element");
+
           console.log(newElement);
 
           return existingElement.ItemName === newElement.ItemName;
         });
       });
 
-      console.log(hasNewElements);
+      console.log("umm:" + hasNewElements);
+      // console.log(findMap[0].items);
 
       if (!hasNewElements) {
         const addItem = await LocationModel.updateOne(
@@ -109,7 +105,18 @@ router.patch("/AddItems/:name", jsonParser, async (req, res) => {
           { $addToSet: { items: { $each: req.body } } }
         );
       } else {
-        res.json("Already added");
+        console.log("already added");
+        const updateQta = await LocationModel.updateOne(
+          {
+            _id: findMap[0]._id,
+            items: {
+              $elemMatch: { ItemName: req.body[0].ItemName },
+            },
+          },
+          {
+            $inc: { "items.$.Qta": 1 }, // Increment the quantity of the existing item
+          }
+        );
       }
     }
   } catch (error) {

@@ -27,7 +27,7 @@ export class FilterSearchComponent {
     if (term) {
       this.router.navigateByUrl('Inventory/search/' + term);
     } else {
-      this.router.navigateByUrl('Inventory/');
+      this.router.navigateByUrl('/Inventory');
     }
   }
 }

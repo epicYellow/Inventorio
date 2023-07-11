@@ -13,11 +13,6 @@
     ></app-filter-search>
 
     <div class="Items">
-      <!-- <div *ngFor="let item of locations">
-        <app-inventory-item
-          *ngFor="let arr of item.items; let i = index"
-        ></app-inventory-item>
-      </div> -->
       <div *ngFor="let obj of locations">
         <div *ngFor="let item of obj.items">
           <app-inventory-item

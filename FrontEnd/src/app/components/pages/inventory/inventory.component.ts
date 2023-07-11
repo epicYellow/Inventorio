@@ -18,6 +18,7 @@ export class InventoryComponent {
   items: any;
   itemsCount: any;
   searchTerm: any;
+  locationFilter: any = 'all';
   userId;
 
   divVisibility = false;
