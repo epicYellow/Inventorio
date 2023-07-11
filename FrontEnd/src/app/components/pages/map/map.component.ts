@@ -1,7 +1,14 @@
-import { Component, ElementRef, Input, ViewChild } from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Component,
+  ElementRef,
+  Input,
+  ViewChild,
+} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { LocationService } from 'src/app/services/location.service';
+import { UserService } from 'src/app/services/user.service';
 import { Location } from 'src/app/shared/models/location';
 
 @Component({
@@ -11,12 +18,13 @@ import { Location } from 'src/app/shared/models/location';
 })
 export class MapComponent {
   locations!: Location[];
+  loggedIn: boolean = false;
   userId;
 
   @ViewChild('Blocks') Blocks: ElementRef;
 
   icon: any = ' ';
-
+  //TODO Document this
   items = [
     { label: 'Item 1', disabled: false },
     { label: 'Item 2', disabled: false },
@@ -43,7 +51,9 @@ export class MapComponent {
 
   constructor(
     locationService: LocationService,
-    activatedRoute: ActivatedRoute
+    activatedRoute: ActivatedRoute,
+    private userService: UserService,
+    private cdr: ChangeDetectorRef
   ) {
     let locationsObservable: Observable<Location[]>;
 
@@ -67,7 +77,12 @@ export class MapComponent {
     });
   }
 
-  ngAfterViewInit() {}
+  ngOnInit() {
+    this.userService.isLoggedIn$.subscribe((isLoggedIn) => {
+      this.loggedIn = isLoggedIn ? true : false;
+      this.cdr.detectChanges();
+    });
+  }
 
   counter(i: number) {
     return new Array(i);

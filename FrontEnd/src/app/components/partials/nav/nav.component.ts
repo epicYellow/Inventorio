@@ -20,7 +20,7 @@ export class NavComponent {
   subscription: Subscription;
   hideNavbarLinks = '/login';
   userId;
-  LogInText = 'LogIn';
+  LogInText: string;
 
   constructor(
     private router: Router,
@@ -30,10 +30,19 @@ export class NavComponent {
   ) {}
 
   ngOnInit() {
-    this.userService.loginStatusChanged.subscribe((isLoggedIn: Boolean) => {
-      this.LogInText = isLoggedIn ? 'LogOut' : 'LogIn';
-      this.cdr.detectChanges();
-    });
+    const checkLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+    console.log('EK VERSTAAN NIE:' + checkLoggedIn);
+
+    if (checkLoggedIn) {
+      this.LogInText = checkLoggedIn ? 'LogOut' : 'LogIn';
+    } else {
+      this.userService.isLoggedIn$.subscribe((isLoggedIn) => {
+        console.log(isLoggedIn);
+
+        this.LogInText = isLoggedIn ? 'LogOut' : 'LogIn';
+        this.cdr.detectChanges();
+      });
+    }
   }
 
   logOutIN() {

@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { catchError } from 'rxjs/operators';
-import { throwError } from 'rxjs';
+import { BehaviorSubject, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -12,9 +12,12 @@ export class UserService {
   loginValidation: EventEmitter<string> = new EventEmitter<string>();
   constructor(private http: HttpClient, private router: Router) {}
 
-  Login(item: any, pageUrl: string): void {
-    console.log('jisieeeeee');
+  isLoggedInSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(
+    false
+  );
+  isLoggedIn$ = this.isLoggedInSubject.asObservable();
 
+  Login(item: any, pageUrl: string): void {
     this.http.post('http://localhost:5001/api/users/login', item).subscribe(
       (response) => {
         console.log('jy sal nie glo nie: ' + response['valid']);
@@ -26,6 +29,8 @@ export class UserService {
           );
           this.loginStatusChanged.emit(true);
           this.router.navigateByUrl(pageUrl);
+          this.isLoggedInSubject.next(true);
+          localStorage.setItem('isLoggedIn', 'true');
         } else {
           this.loginValidation.emit('Wrong details');
         }
@@ -38,6 +43,8 @@ export class UserService {
 
   Logout(): void {
     localStorage.removeItem('UserId');
+    localStorage.setItem('isLoggedIn', 'false');
     this.loginStatusChanged.emit(false);
+    this.isLoggedInSubject.next(false);
   }
 }
