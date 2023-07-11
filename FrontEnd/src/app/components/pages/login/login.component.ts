@@ -64,7 +64,6 @@ export class LoginComponent {
   }
 
   onInputChanged(event: Event) {
-    // Update the rotation angle by 10 degrees each time the input changes
     this.rotation += 10;
   }
 }
