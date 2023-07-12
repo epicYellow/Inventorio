@@ -10,6 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AllitemService } from 'src/app/services/allitem.service';
 import { LocationService } from 'src/app/services/location.service';
+import { SharedServiceService } from 'src/app/services/shared-service.service';
 import { AllItens } from 'src/app/shared/models/AllItems';
 import { Location } from 'src/app/shared/models/location';
 
@@ -29,6 +30,7 @@ export class AddItemsModalComponent {
   constructor(
     allitemService: AllitemService,
     activatedRoute: ActivatedRoute,
+    private sharedService: SharedServiceService,
     private locationService: LocationService,
 
     private fb: FormBuilder
@@ -112,6 +114,7 @@ export class AddItemsModalComponent {
       array,
       this.form.controls['locationName'].value
     );
+    this.sharedService.emitItemAdded();
   }
 
   handleClick(): void {

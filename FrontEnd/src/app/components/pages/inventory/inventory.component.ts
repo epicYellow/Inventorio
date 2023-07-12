@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { LocationService } from 'src/app/services/location.service';
+import { SharedServiceService } from 'src/app/services/shared-service.service';
 import { Location } from 'src/app/shared/models/location';
 
 @Component({
@@ -30,20 +31,22 @@ export class InventoryComponent {
   hideDiv(): void {
     this.divVisibility = false;
   }
+  locationsObservable: Observable<Location[]>;
 
   constructor(
     private locationService: LocationService,
-    activatedRoute: ActivatedRoute
+    activatedRoute: ActivatedRoute,
+    private sharedService: SharedServiceService,
+    private changeDetectorRef: ChangeDetectorRef
   ) {
-    let locationsObservable: Observable<Location[]>;
     this.userId = localStorage.getItem('UserId');
 
     activatedRoute.params.subscribe((params) => {
-      locationsObservable = locationService.getAll();
+      this.locationsObservable = locationService.getAll();
       this.searchTerm = params['searchTerm'];
     });
 
-    locationsObservable.subscribe((serverLocations) => {
+    this.locationsObservable.subscribe((serverLocations) => {
       this.locations = serverLocations.filter(
         (item) => item.userId === this.userId
       );
@@ -52,6 +55,26 @@ export class InventoryComponent {
       const sum = itemCounts.reduce((acc, val) => acc + val, 0);
 
       this.itemsCount = sum;
+    });
+  }
+
+  ngOnInit(): void {
+    this.sharedService.itemAdded.subscribe(() => {
+      this.refreshData();
+    });
+  }
+
+  refreshData() {
+    console.log('this is running');
+
+    this.locationsObservable = this.locationService.getAll();
+
+    this.locationsObservable.subscribe((serverLocations) => {
+      this.locations = serverLocations.filter(
+        (item) => item.userId === this.userId
+      );
+
+      this.changeDetectorRef.detectChanges();
     });
   }
 }
